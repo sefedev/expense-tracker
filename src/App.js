@@ -1,11 +1,11 @@
 import './App.css';
-import InputForm from './components/InputForm';
+import TransactionForm from './components/TransactionForm';
 
 function App() {
   return (
     <div className="App">
       <h1>Expense Tracker</h1>
-      <InputForm />
+      <TransactionForm />
     </div>
   );
 }
