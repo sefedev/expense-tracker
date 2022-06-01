@@ -1,21 +1,60 @@
+import React, { useState } from 'react';
+
 const TransactionForm = () => {
-  const submitTransaction = (e) => {
+  const [transaction, setTransaction] = useState('');
+  const [amount, setAmount] = useState();
+
+  let newTransaction = {
+    transactionName: transaction,
+    amount: +amount,
+  };
+
+  const handleTransactionName = (e) => {
+    setTransaction(e.target.value);
+  };
+  const handleTransactionAmount = (e) => {
+    setAmount(e.target.value);
+  };
+
+  const handleAddExpense = (e) => {
     e.preventDefault();
-    console.log('firing');
+    console.log('add expense');
+    console.log('new transaction', newTransaction);
+  };
+
+  const handleAddIncome = (e) => {
+    e.preventDefault();
+    console.log('add income');
+    console.log('new transaction', newTransaction);
   };
 
   return (
-    <form onSubmit={submitTransaction}>
+    <div>
       <label>
         Transaction:
-        <input type="text" name="transaction" />
+        <input
+          type="text"
+          name="transaction-name"
+          value={transaction}
+          onChange={handleTransactionName}
+        />
       </label>
       <label>
         Amount:
-        <input type="text" name="transaction" />
+        <input
+          type="text"
+          name="transaction-amt"
+          value={amount}
+          onChange={handleTransactionAmount}
+        />
       </label>
-      <input type="submit" value="Add new transaction" />
-    </form>
+      <button type="submit" onClick={handleAddIncome}>
+        Add Income
+      </button>
+      <button type="submit" onClick={handleAddExpense}>
+        Add Expense
+      </button>
+    </div>
   );
 };
 
