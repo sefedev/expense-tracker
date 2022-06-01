@@ -1,4 +1,4 @@
-const InputForm = () => {
+const TransactionForm = () => {
   const submitTransaction = (e) => {
     e.preventDefault();
     console.log('firing');
@@ -19,4 +19,4 @@ const InputForm = () => {
   );
 };
 
-export default InputForm;
+export default TransactionForm;
