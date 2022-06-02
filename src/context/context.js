@@ -9,9 +9,19 @@ const TransactionProvider = ({ children }) => {
     setTransactions([...transactions, newTransaction]);
   };
 
+  const removeTransaction = (idToDelete) => {
+    setTransactions(
+      transactions.filter((transaction) => transaction.id !== idToDelete)
+    );
+  };
+
   return (
     <TransactionContext.Provider
-      value={{ state: transactions, addTransaction: addTransaction }}
+      value={{
+        state: transactions,
+        add: addTransaction,
+        remove: removeTransaction,
+      }}
     >
       {children}
     </TransactionContext.Provider>
