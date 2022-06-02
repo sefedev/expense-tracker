@@ -1,4 +1,5 @@
-const Balance = () => {
+const Balance = ({ transactions }) => {
+  console.log(transactions);
   return (
     <section>
       <div>Balance</div>
