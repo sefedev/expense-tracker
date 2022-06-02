@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const TransactionForm = () => {
+const TransactionForm = ({ onHandleTransactions }) => {
   const [transaction, setTransaction] = useState('');
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState('');
 
   let newTransaction = {
     transactionName: transaction,
@@ -20,13 +20,13 @@ const TransactionForm = () => {
   const handleAddExpense = (e) => {
     e.preventDefault();
     const newExpense = { ...newTransaction, type: 'expense' };
-    console.log('new transaction', newExpense);
+    onHandleTransactions(newExpense);
   };
 
   const handleAddIncome = (e) => {
     e.preventDefault();
     const newIncome = { ...newTransaction, type: 'income' };
-    console.log('new transaction', newIncome);
+    onHandleTransactions(newIncome);
   };
 
   return (
