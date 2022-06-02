@@ -6,7 +6,8 @@ const TransactionForm = () => {
 
   let newTransaction = {
     transactionName: transaction,
-    amount: +amount,
+    amount: +amount, // uses unary operator to set as num and not string
+    type: null,
   };
 
   const handleTransactionName = (e) => {
@@ -18,14 +19,14 @@ const TransactionForm = () => {
 
   const handleAddExpense = (e) => {
     e.preventDefault();
-    console.log('add expense');
-    console.log('new transaction', newTransaction);
+    const newExpense = { ...newTransaction, type: 'expense' };
+    console.log('new transaction', newExpense);
   };
 
   const handleAddIncome = (e) => {
     e.preventDefault();
-    console.log('add income');
-    console.log('new transaction', newTransaction);
+    const newIncome = { ...newTransaction, type: 'income' };
+    console.log('new transaction', newIncome);
   };
 
   return (
