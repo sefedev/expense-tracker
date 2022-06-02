@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import { TransactionContext } from '../../context/context';
+import React, { useState, useContext } from 'react';
 
 const TransactionForm = ({ onHandleTransactions }) => {
   const [transaction, setTransaction] = useState('');
   const [amount, setAmount] = useState('');
+  const { add } = useContext(TransactionContext);
 
   let newTransaction = {
+    id: Math.floor(Math.random() * 100),
     transactionName: transaction,
     amount: +amount, // uses unary operator to set as num and not string
     type: null,
@@ -20,13 +23,13 @@ const TransactionForm = ({ onHandleTransactions }) => {
   const handleAddExpense = (e) => {
     e.preventDefault();
     const newExpense = { ...newTransaction, type: 'expense' };
-    onHandleTransactions(newExpense);
+    add(newExpense);
   };
 
   const handleAddIncome = (e) => {
     e.preventDefault();
     const newIncome = { ...newTransaction, type: 'income' };
-    onHandleTransactions(newIncome);
+    add(newIncome);
   };
 
   return (
