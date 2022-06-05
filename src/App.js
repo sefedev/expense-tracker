@@ -1,11 +1,19 @@
-import './App.css';
+import React from "react";
+// import ExpenseAmount from "./components/ExpenseAmount/ExpenseAmount";
+import InputTransaction from "./components/InputTransaction/InputTransaction";
+import TransactionDetails from "./components/TransactionDetails/TransactionDetails";
+import { TransactionProvider } from "./store/TransactionContext";
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <h1>Expense Tracker</h1>
-    </div>
+    <TransactionProvider>
+      <header>
+        <h1>Income/Expense Tracker</h1>
+      </header>
+      <InputTransaction />
+      <TransactionDetails />
+    </TransactionProvider>
   );
-}
+};
 
 export default App;
