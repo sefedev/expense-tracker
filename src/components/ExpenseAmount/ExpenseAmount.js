@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { TransactionContext } from '../../store/TransactionContext'
 
 const ExpenseAmount = () => {
+  const { globalState, setExpenseAmount} = useContext(TransactionContext)
+  const expenseAmount = globalState
+  .filter(transaction => transaction.type === 'expense')
+  .map(transaction => transaction.amount)
+  .reduce((previousValue, currentValue) => previousValue + currentValue, 0)
+  setExpenseAmount(expenseAmount)
   return (
-    <div>ExpenseAmount</div>
+    <>
+        <p>Expense Amount:{expenseAmount}</p>
+    </>
   )
 }
 

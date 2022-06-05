@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { TransactionContext } from "../../store/TransactionContext";
 
-const TransactionDetail = ({transactionName, amount}) => {
-    console.log(transactionName, amount)
+
+const TransactionDetail = (props) => {
+    const { onDeleteTransaction } = useContext(TransactionContext)
+    
+
   return (
     <>
       <li>
-        {transactionName} {amount}
+        <h4>{props.transactionName}</h4> 
+        <p>{props.amount}</p>
+        <button>Edit</button>
+        <button onClick={() => onDeleteTransaction(props.id)}>Delete</button>
       </li>
     </>
   );
