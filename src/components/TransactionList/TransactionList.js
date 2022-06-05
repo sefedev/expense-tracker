@@ -4,7 +4,6 @@ import TransactionItem from '../TransactionItem/TransactionItem';
 
 const TransactionList = () => {
   const transactions = useContext(TransactionContext);
-  console.log(transactions.state);
   return (
     <section>
       <h2>All Transactions</h2>
