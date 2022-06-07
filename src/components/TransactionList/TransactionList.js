@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { TransactionContext } from '../../context/context';
+import { TransactionContext } from 'context/context';
 import TransactionItem from '../TransactionItem/TransactionItem';
 
 const TransactionList = () => {

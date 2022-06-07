@@ -1,4 +1,4 @@
-import { TransactionContext } from '../../context/context';
+import { TransactionContext } from 'context/context';
 import React, { useState, useContext } from 'react';
 
 const TransactionForm = ({ onHandleTransactions }) => {

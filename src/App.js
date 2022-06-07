@@ -1,8 +1,8 @@
-import { TransactionProvider } from './context/context';
+import { TransactionProvider } from 'context/context';
 import './App.css';
-import Balance from './components/Balance/Balance';
-import TransactionForm from './components/TransactionForm/TransactionForm';
-import TransactionList from './components/TransactionList/TransactionList';
+import Balance from 'components/Balance/Balance';
+import TransactionForm from 'components/TransactionForm/TransactionForm';
+import TransactionList from 'components/TransactionList/TransactionList';
 
 function App() {
   return (

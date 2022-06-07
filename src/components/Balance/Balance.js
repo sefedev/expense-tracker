@@ -1,4 +1,4 @@
-import { TransactionContext } from '../../context/context';
+import { TransactionContext } from 'context/context';
 import { useContext } from 'react';
 
 const Balance = () => {

@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { TransactionContext } from '../../context/context';
+import { TransactionContext } from 'context/context';
 
 const EditTransactionForm = ({
   handleEditMode,
@@ -73,7 +73,6 @@ const TransactionItem = ({ transactionName, amount, id, type }) => {
     <li>
       {editMode ? (
         <EditTransactionForm
-          isEdit={editMode}
           handleEditMode={handleEditMode}
           transactionId={id}
           initTransactionName={transactionName}
