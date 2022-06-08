@@ -6,7 +6,14 @@ const TransactionProvider = (props) => {
   const [transactions, setTransactions] = useState([]);
 
   const addTransaction = (transaction) => {
-   setTransactions(() => [...transactions, transaction]);
+    setTransactions(() => [...transactions, transaction]);
+  };
+
+  const updateTransaction = (data) => {
+    setTransactions([
+      ...transactions.filter((transaction) => transaction.id !== data.id),
+      data,
+    ]);
   };
 
   const deleteTransaction = (transactionId) => {
@@ -21,6 +28,7 @@ const TransactionProvider = (props) => {
         globalState: transactions,
         onAdd: addTransaction,
         onDeleteTransaction: deleteTransaction,
+        onUpdate: updateTransaction,
       }}
     >
       {props.children}

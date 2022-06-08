@@ -1,7 +1,16 @@
 import React, { useContext, useState } from "react";
 import { TransactionContext } from "../../store/TransactionContext";
 
-const EditTransactionDetail = ({ isEdit, handleEditMode, transactionData }) => {
+const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
+  const [data, setData] = useState(transactionData);
+
+  const handleChange = (e, key) => {
+    setData({
+      ...data,
+      [key]: e.target.value,
+    });
+  };
+
   return (
     <>
       <div class="form-control">
@@ -9,35 +18,42 @@ const EditTransactionDetail = ({ isEdit, handleEditMode, transactionData }) => {
         <input
           type="text"
           name="transaction-name"
-          value={transactionData.transactionName}
+          value={data.transactionName}
+          onChange={(e) => {
+            handleChange(e, "transactionName");
+          }}
         />
       </div>
       <div class="form-control">
         <label>Edit Amount</label>
-        <input type="number" name="amount" value={transactionData.amount} />
+        <input
+          type="number"
+          name="amount"
+          value={data.amount}
+          onChange={(e) => {
+            handleChange(e, "amount");
+          }}
+        />
       </div>
-      <button>Save</button>
+      <button
+        onClick={() => {
+          handleSave(data);
+        }}
+      >
+        Save
+      </button>
       <button>Cancel</button>
     </>
   );
 };
 
-const TransactionDetail = ({ id, transactionName, amount, type }) => {
-  const { editMode, setEditMode } = useState(false);
-  const { initData, setInitData } = useState();
+const TransactionDetail = (props) => {
+  const { onDeleteTransaction, onUpdate } = useContext(TransactionContext);
+  const [editMode, setEditMode] = useState(false);
 
-  const { onDeleteTransaction } = useContext(TransactionContext);
-
-  const handleEditMode = () => {
-    const initTransaction = {
-      id: id,
-      transactionName: transactionName,
-      amount: +amount,
-      type: type,
-    };
-
-    setEditMode(false);
-    setInitData(initTransaction);
+  const handleSave = (data) => {
+    onUpdate(data);
+    setEditMode(!editMode);
   };
 
   return (
@@ -46,15 +62,17 @@ const TransactionDetail = ({ id, transactionName, amount, type }) => {
         {editMode ? (
           <EditTransactionDetail
             isEdit={editMode}
-            handleEditMode={handleEditMode}
-            transactionData={initData}
+            handleSave={handleSave}
+            transactionData={props}
           />
         ) : (
           <>
-            <h4>{transactionName}</h4>
-            <p>{amount}</p>
+            <h4>{props.transactionName}</h4>
+            <p>{props.amount}</p>
             <button onClick={() => setEditMode(true)}>Edit</button>
-            <button onClick={() => onDeleteTransaction(id)}>Delete</button>
+            <button onClick={() => onDeleteTransaction(props.id)}>
+              Delete
+            </button>
           </>
         )}
       </li>
