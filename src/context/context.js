@@ -6,7 +6,8 @@ const TransactionProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   const addTransaction = (newTransaction) => {
-    setTransactions([...transactions, newTransaction]);
+    setTransactions(() => [...transactions, newTransaction]);
+    console.log(transactions);
   };
 
   const removeTransaction = (idToDelete) => {
@@ -16,7 +17,6 @@ const TransactionProvider = ({ children }) => {
   };
 
   const editTransaction = (newTransaction, idToEdit) => {
-    console.log(newTransaction);
     const updatedTransactions = transactions.map((transaction) => {
       if (transaction.id === idToEdit) {
         transaction.transactionName = newTransaction.transactionName;
@@ -24,7 +24,8 @@ const TransactionProvider = ({ children }) => {
       }
       return transaction;
     });
-    setTransactions(updatedTransactions);
+    setTransactions(() => updatedTransactions);
+    console.log('updated', transactions);
   };
 
   return (
