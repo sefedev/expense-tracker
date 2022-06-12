@@ -67,8 +67,6 @@ const TransactionItem = ({ transactionName, amount, id, type }) => {
     setNewAmount(e.target.value);
   };
 
-  console.log(newName, newAmount);
-
   return (
     <li>
       {editMode ? (
