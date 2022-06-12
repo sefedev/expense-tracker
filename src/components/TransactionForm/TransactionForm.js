@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { TransactionContext } from "../../store/TransactionContext";
 
-const InputTransaction = (props) => {
+const TransactionForm = (props) => {
   const [newTransaction, setNewTransaction] = useState("");
   const [newAmount, setNewAmount] = useState("");
 
@@ -75,4 +75,4 @@ const InputTransaction = (props) => {
   );
 };
 
-export default InputTransaction;
+export default TransactionForm;

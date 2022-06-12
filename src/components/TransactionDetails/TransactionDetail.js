@@ -13,7 +13,7 @@ const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
 
   return (
     <>
-      <div class="form-control">
+      <div className="form-control">
         <label>Edit Transaction</label>
         <input
           type="text"
@@ -24,7 +24,7 @@ const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
           }}
         />
       </div>
-      <div class="form-control">
+      <div className="form-control">
         <label>Edit Amount</label>
         <input
           type="number"

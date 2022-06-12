@@ -1,19 +1,20 @@
 import React from "react";
 import DisplayAmount from "./components/DisplayAmount/DisplayAmount";
-import InputTransaction from "./components/InputTransaction/InputTransaction";
+import TransactionInput from "./components/TransactionInput/TransactionInput";
 import TransactionDetails from "./components/TransactionDetails/TransactionDetails";
 import { TransactionProvider } from "./store/TransactionContext";
+import Modal from "./UI/Modal/Modal";
 
-const App = (props) => {
+
+const App = () => {
+  
   return (
     <TransactionProvider>
-      <header>
-        <h1>Income/Expense Tracker</h1>
-      </header>
-      <InputTransaction />
       <DisplayAmount />
+      <TransactionInput />
       <TransactionDetails />
     </TransactionProvider>
+    
   );
 };
 
