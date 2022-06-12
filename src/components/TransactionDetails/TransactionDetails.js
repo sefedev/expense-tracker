@@ -7,6 +7,7 @@ const TransactionDetails = () => {
   return (
     <>
       <h2>Transaction History</h2>
+      {transactions.globalState.length === 0 && <p>No Transaction to Show!</p>}
       <ul>
         {transactions.globalState.map((transaction) => (
           <TransactionDetail

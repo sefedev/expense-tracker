@@ -4,7 +4,8 @@ const TransactionContext = createContext();
 
 const TransactionProvider = (props) => {
   const [transactions, setTransactions] = useState([]);
-  const [open, setOpen] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
+  const [modalType, setModalType] = useState()
 
   const addTransaction = (transaction) => {
     setTransactions(() => [...transactions, transaction]);
@@ -23,11 +24,6 @@ const TransactionProvider = (props) => {
     );
   };
 
-const onOpen = () => {
-  setOpen(!open)
-}
-
-
   const transactionCount = transactions.length
 
   useEffect(() => {
@@ -43,8 +39,8 @@ const onOpen = () => {
         onAdd: addTransaction,
         onDeleteTransaction: deleteTransaction,
         onUpdate: updateTransaction,
-        open: open,
-        onOpen: setOpen
+        openModal: openModal,
+        onOpenModal: setOpenModal,
       }}
     >
       {props.children}

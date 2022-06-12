@@ -1,8 +1,10 @@
 import React, { useContext, useState } from "react";
 import { TransactionContext } from "../../store/TransactionContext";
+import Modal from "../../UI/Modal/Modal";
 
 const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
   const [data, setData] = useState(transactionData);
+  const { onOpenModal } = useContext(TransactionContext);
 
   const handleChange = (e, key) => {
     setData({
@@ -10,6 +12,7 @@ const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
       [key]: e.target.value,
     });
   };
+
 
   return (
     <>
@@ -37,18 +40,26 @@ const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
       </div>
       <button
         onClick={() => {
+          onOpenModal(false);
           handleSave(data);
         }}
       >
         Save
       </button>
-      <button>Cancel</button>
+      <button
+      onClick={() => {
+        onOpenModal(false);
+        isEdit(false);
+      }}
+    >
+      Cancel
+    </button>
     </>
   );
 };
 
 const TransactionDetail = (props) => {
-  const { onDeleteTransaction, onUpdate } = useContext(TransactionContext);
+  const { onDeleteTransaction, onUpdate, modalType } = useContext(TransactionContext);
   const [editMode, setEditMode] = useState(false);
 
   const handleSave = (data) => {
@@ -60,16 +71,21 @@ const TransactionDetail = (props) => {
     <>
       <li>
         {editMode ? (
-          <EditTransactionDetail
-            isEdit={editMode}
-            handleSave={handleSave}
-            transactionData={props}
-          />
+          <Modal>
+            <EditTransactionDetail
+              isEdit={setEditMode}
+              handleSave={handleSave}
+              transactionData={props}
+            />
+          </Modal>
         ) : (
           <>
             <h4>{props.transactionName}</h4>
             <p>{props.amount}</p>
-            <button onClick={() => setEditMode(true)}>Edit</button>
+            <button onClick={() =>{ 
+              console.log(modalType)
+              setEditMode(true)}
+              }>Edit</button>
             <button onClick={() => onDeleteTransaction(props.id)}>
               Delete
             </button>

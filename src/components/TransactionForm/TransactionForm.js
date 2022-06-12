@@ -8,7 +8,7 @@ const TransactionForm = (props) => {
   // const addTransactionRef= useRef()
   // const addAmountRef = useRef()
 
-  const { onAdd } = useContext(TransactionContext);
+  const { onAdd, onOpenModal } = useContext(TransactionContext);
 
   let transaction = {
     id: Math.floor(Math.random() * 1000),
@@ -31,6 +31,7 @@ const TransactionForm = (props) => {
     onAdd(newIncome);
     setNewTransaction('')
     setNewAmount('')
+    onOpenModal(false)
   };
 
   const addExpenseHandler = (e) => {
@@ -39,6 +40,7 @@ const TransactionForm = (props) => {
     onAdd(newExpense);
     setNewTransaction('')
     setNewAmount('')
+    onOpenModal(false)
   };
 
   //  console.log(addTransactionRef)

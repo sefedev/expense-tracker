@@ -4,10 +4,10 @@ import { TransactionContext } from "../../store/TransactionContext";
 import classes from "./Modal.module.css";
 
 const Modal = (props) => {
-    const { onOpen } = useContext(TransactionContext)
+    const { onOpenModal } = useContext(TransactionContext)
   return ReactDOM.createPortal(
     <>
-      <div className={classes.modalShadow} onClick={() => onOpen(false)}/>
+      <div className={classes.modalShadow} onClick={() => onOpenModal(false)}/>
       <div className={classes.modal}>
         <div className={classes.modalBanner}>
         </div>
