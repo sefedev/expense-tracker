@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { TransactionContext } from "../../store/TransactionContext";
 import classes from "./Modal.module.css";
 
-const Modal = () => {
+const Modal = (props) => {
     const { onOpen } = useContext(TransactionContext)
   return ReactDOM.createPortal(
     <>
@@ -12,7 +12,7 @@ const Modal = () => {
         <div className={classes.modalBanner}>
         </div>
         <div className={classes.modalContent}>
-            
+            {props.children}
         </div>
         <div className={classes.modalFooter}></div>
       </div>
