@@ -4,10 +4,11 @@ const TransactionContext = createContext();
 
 const TransactionProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [modalType, setModalType] = useState();
 
-  const addTransaction = (newTransaction) => {
-    setTransactions(() => [...transactions, newTransaction]);
-    console.log(transactions);
+  const addTransaction = (transaction) => {
+    setTransactions(() => [...transactions, transaction]);
   };
 
   const deleteTransaction = (idToDelete) => {
@@ -31,6 +32,8 @@ const TransactionProvider = ({ children }) => {
         onAdd: addTransaction,
         onDelete: deleteTransaction,
         onUpdate: updateTransaction,
+        openModal: openModal,
+        onOpenModal: setOpenModal,
       }}
     >
       {children}
