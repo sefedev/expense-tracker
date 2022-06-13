@@ -1,6 +1,6 @@
 import { TransactionProvider } from 'context/context';
 import DisplayBalance from 'components/DisplayBalance';
-import TransactionForm from 'components/TransactionForm';
+import TransactionInput from 'components/TransactionInput';
 import Transactions from 'components/Transactions';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <TransactionProvider>
       <main className="tracker-container">
         <DisplayBalance />
-        <TransactionForm />
+        <TransactionInput />
         <Transactions />
       </main>
     </TransactionProvider>
