@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { TransactionContext } from '../../store/TransactionContext';
-import classes from './Modal.module.css';
+import { TransactionContext } from 'context/context';
+import classes from 'styles/Modal.module.css';
 
 const Modal = (props) => {
   const { onOpenModal } = useContext(TransactionContext);
