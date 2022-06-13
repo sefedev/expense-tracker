@@ -10,31 +10,27 @@ const TransactionProvider = ({ children }) => {
     console.log(transactions);
   };
 
-  const removeTransaction = (idToDelete) => {
+  const deleteTransaction = (idToDelete) => {
     setTransactions(
       transactions.filter((transaction) => transaction.id !== idToDelete)
     );
   };
 
-  const editTransaction = (newTransaction, idToEdit) => {
-    const updatedTransactions = transactions.map((transaction) => {
-      if (transaction.id === idToEdit) {
-        transaction.transactionName = newTransaction.transactionName;
-        transaction.amount = newTransaction.amount;
-      }
-      return transaction;
-    });
-    setTransactions(() => updatedTransactions);
-    console.log('updated', transactions);
+  const updateTransaction = (data) => {
+    setTransactions([
+      ...transactions.filter((transaction) => transaction.id !== data.id),
+      data,
+    ]);
   };
 
   return (
     <TransactionContext.Provider
       value={{
-        state: transactions,
-        add: addTransaction,
-        remove: removeTransaction,
-        edit: editTransaction,
+        globalState: transactions,
+        // transactionCount: transactionCount,
+        onAdd: addTransaction,
+        onDelete: deleteTransaction,
+        onUpdate: updateTransaction,
       }}
     >
       {children}
