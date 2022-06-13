@@ -1,17 +1,16 @@
 import { TransactionProvider } from 'context/context';
-import Balance from 'components/Balance/Balance';
-import TransactionForm from 'components/TransactionForm/TransactionForm';
-import TransactionList from 'components/TransactionList/TransactionList';
+import DisplayBalance from 'components/DisplayBalance';
+import TransactionForm from 'components/TransactionForm';
+import Transactions from 'components/Transactions';
 
 function App() {
   return (
     <TransactionProvider>
-      <div className="tracker-container">
-        <h1>Expense Tracker</h1>
-        <Balance />
+      <main className="tracker-container">
+        <DisplayBalance />
         <TransactionForm />
-        <TransactionList />
-      </div>
+        <Transactions />
+      </main>
     </TransactionProvider>
   );
 }
