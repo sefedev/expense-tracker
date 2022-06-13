@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { TransactionContext } from 'context/context';
-import Modal from 'components/Modal';
-import TransactionForm from 'components/TransactionForm';
+import Modal from 'components/Modal/Modal';
+import TransactionForm from 'components/TransactionForm/TransactionForm';
 
 const TransactionInput = () => {
   const { openModal, onOpenModal, transactionCount } =

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { TransactionContext } from 'context/context';
-import Modal from 'components/Modal';
+import Modal from 'components/Modal/Modal';
 
 const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
   const [data, setData] = useState(transactionData);

@@ -1,7 +1,7 @@
 import { TransactionProvider } from 'context/context';
-import DisplayBalance from 'components/DisplayBalance';
-import TransactionInput from 'components/TransactionInput';
-import Transactions from 'components/Transactions';
+import DisplayBalance from 'components/DisplayBalance/DisplayBalance';
+import TransactionInput from 'components/TransactionInput/TransactionInput';
+import Transactions from 'components/Transactions/Transactions';
 
 function App() {
   return (

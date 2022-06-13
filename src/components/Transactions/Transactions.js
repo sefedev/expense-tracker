@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { TransactionContext } from 'context/context';
-import Transaction from './Transaction';
+import Transaction from '../Transaction/Transaction';
 
 const Transactions = () => {
   const { globalState } = useContext(TransactionContext);
