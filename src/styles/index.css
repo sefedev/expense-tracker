@@ -13,6 +13,9 @@
   body {
     @apply bg-blue-gray-light;
   }
+  ul {
+    @apply list-none;
+  }
 }
 
 body {
