@@ -3,7 +3,28 @@ import { createContext, useState } from 'react';
 const TransactionContext = createContext();
 
 const TransactionProvider = ({ children }) => {
-  const [transactions, setTransactions] = useState([]);
+  const dummyData = [
+    {
+      transactionName: 'Cat food',
+      amount: 1200,
+      type: 'expense',
+      id: 1,
+    },
+    {
+      transactionName: 'Income',
+      amount: 13000,
+      type: 'income',
+      id: 1,
+    },
+    {
+      transactionName: 'Phone bill - June',
+      amount: 1400,
+      type: 'expense',
+      id: 1,
+    },
+  ];
+
+  const [transactions, setTransactions] = useState(dummyData);
   const [openModal, setOpenModal] = useState(false);
   const [modalType, setModalType] = useState();
 
