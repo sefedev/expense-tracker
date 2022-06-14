@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'Inter';
+  }
+  body,
+  html {
+    @apply box-border;
+  }
+  body {
+    @apply bg-blue-gray-light;
+  }
+}
+
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
