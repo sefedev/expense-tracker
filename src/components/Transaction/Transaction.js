@@ -1,100 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { TransactionContext } from 'context/context';
+import { ChevronRightIcon } from '@heroicons/react/solid';
 import Modal from 'components/Modal/Modal';
 
-const EditTransactionDetail = ({ isEdit, handleSave, transactionData }) => {
-  const [data, setData] = useState(transactionData);
-  const { onOpenModal } = useContext(TransactionContext);
-
-  const handleChange = (e, key) => {
-    setData({
-      ...data,
-      [key]: e.target.value,
-    });
-  };
-
+const Transaction = ({ transactionName, amount }) => {
   return (
-    <>
-      <div className="form-control">
-        <label>Edit Transaction</label>
-        <input
-          type="text"
-          name="transaction-name"
-          value={data.transactionName}
-          onChange={(e) => {
-            handleChange(e, 'transactionName');
-          }}
-        />
-      </div>
-      <div className="form-control">
-        <label>Edit Amount</label>
-        <input
-          type="number"
-          name="amount"
-          value={data.amount}
-          onChange={(e) => {
-            handleChange(e, 'amount');
-          }}
-        />
-      </div>
-      <button
-        onClick={() => {
-          onOpenModal(false);
-          handleSave(data);
-        }}
-      >
-        Save
-      </button>
-      <button
-        onClick={() => {
-          onOpenModal(false);
-          isEdit(false);
-        }}
-      >
-        Cancel
-      </button>
-    </>
+    <li className="px-6 py-4 bg-white rounded-md list-none flex items-center place-content-between mb-2 cursor-pointer">
+      <p className="font-bold text-blue-dark">{transactionName}</p>
+      <span className="flex items-center">
+        <p className="text-gray mr-4">{amount}</p>
+        <ChevronRightIcon className="h-5 w-5 text-blue" />
+      </span>
+    </li>
   );
 };
 
-const TransactionDetail = (props) => {
-  const { onDelete, onUpdate, modalType } = useContext(TransactionContext);
-  const [editMode, setEditMode] = useState(false);
-
-  const handleSave = (data) => {
-    onUpdate(data);
-    setEditMode(!editMode);
-  };
-
-  return (
-    <>
-      <li>
-        {editMode ? (
-          <Modal>
-            <EditTransactionDetail
-              isEdit={setEditMode}
-              handleSave={handleSave}
-              transactionData={props}
-            />
-          </Modal>
-        ) : (
-          <>
-            <h4>{props.transactionName}</h4>
-            <p>{props.amount}</p>
-            <button
-              onClick={() => {
-                console.log(modalType);
-                setEditMode(true);
-              }}
-            >
-              Edit
-            </button>
-            <button onClick={() => onDelete(props.id)}>Delete</button>
-          </>
-        )}
-      </li>
-    </>
-  );
-};
-
-export default TransactionDetail;
+export default Transaction;
