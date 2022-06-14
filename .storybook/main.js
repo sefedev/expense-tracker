@@ -7,6 +7,14 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
+    {
+      name: 'storybook-addon-sass-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
   ],
   features: {
     previewMdx2: true,
@@ -14,21 +22,5 @@ module.exports = {
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-webpack5',
-  },
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\,css&/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: [require('tailwindcss'), require('autoprefixer')],
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
-    });
-    return config;
   },
 };
