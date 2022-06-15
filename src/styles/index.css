@@ -11,6 +11,7 @@
     @apply box-border;
   }
   body {
+    @apply text-base;
     @apply bg-blue-gray-light;
   }
   ul {
