@@ -1,19 +1,19 @@
-import React from "react";
-import DisplayAmount from "./components/DisplayAmount/DisplayAmount";
-import TransactionInput from "./components/TransactionInput/TransactionInput";
-import TransactionDetails from "./components/TransactionDetails/TransactionDetails";
-import { TransactionProvider } from "./store/TransactionContext";
+import { TransactionProvider } from 'context/context';
+import DisplayBalance from 'components/DisplayBalance/DisplayBalance';
+import TransactionInput from 'components/TransactionInput/TransactionInput';
+import Transactions from 'components/Transactions/Transactions';
 
 
 const App = () => {
   
   return (
     <TransactionProvider>
-      <DisplayAmount />
-      <TransactionInput />
-      <TransactionDetails />
+      <main className="mx-auto px-3 max-w-2xl">
+        <DisplayBalance />
+        <TransactionInput />
+        <Transactions />
+      </main>
     </TransactionProvider>
-    
   );
 };
 

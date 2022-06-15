@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
-import { TransactionContext } from "../../store/TransactionContext";
-import Modal from "../../UI/Modal/Modal";
-import TransactionForm from '../TransactionForm/TransactionForm'
+import React, { useContext } from 'react';
+import { TransactionContext } from 'context/context';
+import Modal from 'components/Modal/Modal';
+import TransactionForm from 'components/TransactionForm/TransactionForm';
 
 const TransactionInput = () => {
-  const { openModal, onOpenModal, transactionCount } = useContext(TransactionContext);
-  
+  const { openModal, onOpenModal, transactionCount } =
+    useContext(TransactionContext);
+
   return (
     <>
       <section>
@@ -14,7 +15,11 @@ const TransactionInput = () => {
       <section>
         <button onClick={() => onOpenModal(true)}>Add New</button>
       </section>
-      {openModal && <Modal><TransactionForm /></Modal>}
+      {openModal && (
+        <Modal>
+          <TransactionForm />
+        </Modal>
+      )}
     </>
   );
 };

@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { TransactionContext } from "../../store/TransactionContext";
+import React, { useContext, useState } from 'react';
+import { TransactionContext } from 'context/context';
 
 const TransactionForm = (props) => {
-  const [newTransaction, setNewTransaction] = useState("");
-  const [newAmount, setNewAmount] = useState("");
+  const [newTransaction, setNewTransaction] = useState('');
+  const [newAmount, setNewAmount] = useState('');
 
   // const addTransactionRef= useRef()
   // const addAmountRef = useRef()
@@ -27,20 +27,20 @@ const TransactionForm = (props) => {
 
   const addIncomeHandler = (e) => {
     e.preventDefault();
-    const newIncome = { ...transaction, type: "income" };
+    const newIncome = { ...transaction, type: 'income' };
     onAdd(newIncome);
-    setNewTransaction('')
-    setNewAmount('')
-    onOpenModal(false)
+    setNewTransaction('');
+    setNewAmount('');
+    onOpenModal(false);
   };
 
   const addExpenseHandler = (e) => {
     e.preventDefault();
-    const newExpense = { ...transaction, type: "expense" };
+    const newExpense = { ...transaction, type: 'expense' };
     onAdd(newExpense);
-    setNewTransaction('')
-    setNewAmount('')
-    onOpenModal(false)
+    setNewTransaction('');
+    setNewAmount('');
+    onOpenModal(false);
   };
 
   //  console.log(addTransactionRef)
