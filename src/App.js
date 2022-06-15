@@ -6,7 +6,7 @@ import Transactions from 'components/Transactions/Transactions';
 function App() {
   return (
     <TransactionProvider>
-      <main className="tracker-container">
+      <main className="mx-auto px-3 max-w-2xl">
         <DisplayBalance />
         <TransactionInput />
         <Transactions />
