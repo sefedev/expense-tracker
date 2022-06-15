@@ -24,7 +24,7 @@ const TransactionProvider = ({ children }) => {
     },
   ];
 
-  const [transactions, setTransactions] = useState(dummyData);
+  const [transactions, setTransactions] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [modalType, setModalType] = useState();
 
