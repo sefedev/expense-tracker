@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { TransactionContext } from 'context/context';
 import { ChevronRightIcon } from '@heroicons/react/solid';
-import Modal from 'components/Modal/Modal';
 
 const Transaction = ({ transactionName, amount }) => {
   return (
