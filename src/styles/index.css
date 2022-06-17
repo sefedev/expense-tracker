@@ -26,7 +26,7 @@ body {
     @apply font-bold;
   }
   h1 {
-    @apply text-3xl;
+    @apply text-2xl;
   }
   ul {
     @apply list-none;
