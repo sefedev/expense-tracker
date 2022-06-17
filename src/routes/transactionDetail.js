@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { ChevronLeftIcon } from '@heroicons/react/solid';
 import { TransactionContext, TransactionProvider } from 'context/context';
 import { Link, useParams } from 'react-router-dom';
 
@@ -14,15 +15,19 @@ const TransactionDetail = () => {
   return (
     <TransactionProvider>
       <main className="transactions-container">
-        <Link to="/">
-          <div>
-            <span className="text-sm font-bold text-gray">Go Back</span>
+        <Link to="/" className=" mb-10">
+          <div className="group inline-flex items-center hover:text-gray-dark">
+            <ChevronLeftIcon className="h-11 w-6 text-gray mr-1  group-hover:text-gray-dark" />
+            <span className="text-sm font-bold text-gray  group-hover:text-gray-dark">
+              Go Back
+            </span>
           </div>
         </Link>
+
         <div className="mb-7">
           <h1>Transaction Details</h1>
         </div>
-        <div className="bg-white px-8 py-8 rounded-md space-y-4">
+        <div className="bg-white px-8 py-10 rounded-md space-y-5">
           <div>
             <p className="text-gray text-sm mb-1">Transaction Name</p>
             <p className="font-bold">{transactionName}</p>
