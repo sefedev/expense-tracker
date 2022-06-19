@@ -45,11 +45,13 @@ const TransactionProvider = ({ children }) => {
     ]);
   };
 
+const transactionCount = transactions.length
+
   return (
     <TransactionContext.Provider
       value={{
         globalState: transactions,
-        // transactionCount: transactionCount,
+        transactionCount: transactionCount,
         onAdd: addTransaction,
         onDelete: deleteTransaction,
         onUpdate: updateTransaction,

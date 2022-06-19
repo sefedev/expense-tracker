@@ -1,7 +1,10 @@
-import { useContext } from 'react';
-import { TransactionContext } from 'context/context';
-import Transaction from '../Transaction/Transaction';
-import emptyImg from 'assets/img/sammy-money-tree-1.png';
+import { useContext } from "react";
+import { TransactionContext } from "context/context";
+import Transaction from "../Transaction/Transaction";
+import emptyImg from "assets/img/sammy-money-tree-1.png";
+import Modal from "components/Modal/Modal";
+import TransactionForm from "components/TransactionForm/TransactionForm";
+import { PlusIcon } from "@heroicons/react/solid";
 
 const EmptyTransactions = () => {
   return (
@@ -20,12 +23,29 @@ const EmptyTransactions = () => {
 };
 
 const Transactions = () => {
-  const { globalState } = useContext(TransactionContext);
+  const { globalState, openModal, onOpenModal, transactionCount } =
+    useContext(TransactionContext);
   return (
     <section>
       <div className="flex items-center place-content-between">
-        <h2 className="text-bold text-blue-dark">Transactions</h2>
-        Button goes here
+        <span>
+        <p className="text-blue-dark text-xl font-extrabold">Transactions</p>
+        <p className="text-gray text-xs">Showing {transactionCount} transactions</p>
+        </span>
+        <button
+          type="button"
+          className="text-white bg-blue hover:bg-white hover:text-blue font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 mb-2 transition ease-in-out delay-150"
+          onClick={() => onOpenModal(true)}
+        >
+          <PlusIcon className="w-4 h-4 mr-2 -ml-1" />
+          Add New
+        </button>
+
+        {openModal && (
+          <Modal>
+            <TransactionForm />
+          </Modal>
+        )}
       </div>
 
       {globalState.length === 0 && <EmptyTransactions />}

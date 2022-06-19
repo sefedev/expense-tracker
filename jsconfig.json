@@ -3,5 +3,5 @@
     "baseUrl": "./src"
   },
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.scss", "src/**/*.css"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".storybook"]
 }

@@ -9,9 +9,8 @@ const Modal = (props) => {
     <>
       <div className={classes.modalShadow} onClick={() => onOpenModal(false)} />
       <div className={classes.modal}>
-        <div className={classes.modalBanner}></div>
         <div className={classes.modalContent}>{props.children}</div>
-        <div className={classes.modalFooter}></div>
+        
       </div>
     </>,
     document.getElementById('modal-root')
