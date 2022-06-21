@@ -1,4 +1,4 @@
-const Button = (props) => {
+const Button = ({ type, children, onClick }) => {
   return <button>test</button>;
 };
 
