@@ -25,3 +25,11 @@ Cancel.args = {
   buttonType: 'cancel',
   children: 'Cancel',
 };
+
+export const Delete = Template.bind({});
+Delete.args = {
+  primary: true,
+  label: 'Button',
+  buttonType: 'delete',
+  children: 'Delete',
+};
