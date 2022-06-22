@@ -1,15 +1,14 @@
 import DisplayBalance from 'components/DisplayBalance/DisplayBalance';
-import TransactionInput from 'components/TransactionInput/TransactionInput';
 import Transactions from 'components/Transactions/Transactions';
 
 function App() {
   return (
-    <main className="transactions-container">
-      <DisplayBalance />
-      <TransactionInput />
-      <Transactions />
-    </main>
+      <main className="mx-auto px-3 max-w-2xl">
+        <DisplayBalance />
+        <Transactions />
+      </main>
   );
 }
 
 export default App;
+
