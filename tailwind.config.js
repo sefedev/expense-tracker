@@ -5,6 +5,7 @@ module.exports = {
     colors: {
       'white': 'hsl(0, 0%, 100%)',
       'gray': 'hsl(234, 15%, 66%)',
+      'gray-dark': 'hsl(234, 18%, 51%)',
       'gray-shadow': 'hsla(234, 39%, 89%, 70%)',
       'green': 'hsl(151, 60%, 53%)',
       'blue': 'hsl(227, 90%, 62%)',
