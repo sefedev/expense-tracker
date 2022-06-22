@@ -8,23 +8,23 @@ const TransactionProvider = ({ children }) => {
       transactionName: 'Cat food',
       amount: 1200,
       type: 'expense',
-      id: 1,
+      id: 1123,
     },
     {
       transactionName: 'Income',
       amount: 13000,
       type: 'income',
-      id: 1,
+      id: 54564,
     },
     {
       transactionName: 'Phone bill - June',
       amount: 1400,
       type: 'expense',
-      id: 1,
+      id: 65845,
     },
   ];
 
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState(dummyData);
   const [openModal, setOpenModal] = useState(false);
   const [modalType, setModalType] = useState();
 
