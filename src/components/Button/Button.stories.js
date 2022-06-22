@@ -1,4 +1,5 @@
 import Button from './Button';
+import { PlusCircleIcon } from '@heroicons/react/solid';
 
 export default {
   title: 'Button',
@@ -20,6 +21,19 @@ Primary.args = {
   description: 'This is the base button style used for adding and editing.',
   buttonType: 'primary',
   children: 'Primary button',
+};
+
+export const AddNew = () => (
+  <Button buttonType="addNew" onClick={() => {}}>
+    <span className="flex items-center">
+      <PlusCircleIcon className="h-8 w-8 text-whit mr-2" /> Add New
+    </span>
+  </Button>
+);
+AddNew.args = {
+  primary: true,
+  label: 'Add New Button',
+  description: 'This is the base button style used for adding and editing.',
 };
 
 export const Cancel = Template.bind({});
