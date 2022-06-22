@@ -13,6 +13,7 @@ module.exports = {
       'blue-gray': 'hsl(234, 40%, 74%)',
       'blue-gray-light': 'hsl(205, 22%, 96%)',
       'blue-dark': 'hsl(234, 73%, 23%)',
+      'blue-dark-saturated': 'hsl(227, 100%, 47%)',
       'blue-overlay': 'hsl(234, 73%, 23%)',
       'red': 'hsl(348, 99%, 47%)',
       'salmon': 'hsl(360, 92%, 69%)',
