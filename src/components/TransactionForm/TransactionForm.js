@@ -82,7 +82,6 @@ const TransactionForm = (props) => {
           type="radio"
           id="add-income"
           name="transaction"
-          checked
           value="addIncome"
           onChange={handleRadioChange}
         />
