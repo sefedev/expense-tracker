@@ -1,11 +1,14 @@
-import './App.css';
+import DisplayBalance from 'components/DisplayBalance/DisplayBalance';
+import Transactions from 'components/Transactions/Transactions';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Expense Tracker</h1>
-    </div>
+      <main className="mx-auto px-3 max-w-2xl">
+        <DisplayBalance />
+        <Transactions />
+      </main>
   );
 }
 
 export default App;
+
